@@ -15,11 +15,11 @@ public partial class VendasnetcoreContext : DbContext
     {
     }
 
-    public virtual DbSet<Categorium> Categoria { get; set; }
+    public virtual DbSet<Categoria> Categoria { get; set; }
 
     public virtual DbSet<Configuracao> Configuracaos { get; set; }
 
-    public virtual DbSet<DetalheVendum> DetalheVenda { get; set; }
+    public virtual DbSet<DetalheVenda> DetalheVenda { get; set; }
 
     public virtual DbSet<Menu> Menus { get; set; }
 
@@ -33,11 +33,11 @@ public partial class VendasnetcoreContext : DbContext
 
     public virtual DbSet<RolMenu> RolMenus { get; set; }
 
-    public virtual DbSet<TipoDocumentoVendum> TipoDocumentoVenda { get; set; }
+    public virtual DbSet<TipoDocumentoVenda> TipoDocumentoVenda { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
-    public virtual DbSet<Vendum> Venda { get; set; }
+    public virtual DbSet<Venda> Venda { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -45,7 +45,7 @@ public partial class VendasnetcoreContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Categorium>(entity =>
+        modelBuilder.Entity<Categoria>(entity =>
         {
             entity.HasKey(e => e.IdCategoria).HasName("PK__Categori__8A3D240CAAC87CE8");
 
@@ -81,7 +81,7 @@ public partial class VendasnetcoreContext : DbContext
                 .HasColumnName("valor");
         });
 
-        modelBuilder.Entity<DetalheVendum>(entity =>
+        modelBuilder.Entity<DetalheVenda>(entity =>
         {
             entity.HasKey(e => e.IdDetalheVenda).HasName("PK__DetalheV__61EFE30E7D378910");
 
@@ -297,7 +297,7 @@ public partial class VendasnetcoreContext : DbContext
                 .HasConstraintName("FK__RolMenu__idRol__3E52440B");
         });
 
-        modelBuilder.Entity<TipoDocumentoVendum>(entity =>
+        modelBuilder.Entity<TipoDocumentoVenda>(entity =>
         {
             entity.HasKey(e => e.IdTipoDocumentoVenda).HasName("PK__TipoDocu__A9D414E23BE69A9F");
 
@@ -356,7 +356,7 @@ public partial class VendasnetcoreContext : DbContext
                 .HasConstraintName("FK__Usuario__idRol__4316F928");
         });
 
-        modelBuilder.Entity<Vendum>(entity =>
+        modelBuilder.Entity<Venda>(entity =>
         {
             entity.HasKey(e => e.IdVenda).HasName("PK__Venda__077BEC28C03838E8");
 

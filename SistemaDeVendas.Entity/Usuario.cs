@@ -27,5 +27,5 @@ public partial class Usuario
 
     public virtual Rol? IdRolNavigation { get; set; }
 
-    public virtual ICollection<Vendum> Venda { get; set; } = new List<Vendum>();
+    public virtual ICollection<Venda> Venda { get; set; } = new List<Venda>();
 }

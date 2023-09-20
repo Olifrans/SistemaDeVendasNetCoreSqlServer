@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SistemaDeVendas.Entity;
 
-public partial class Categorium
+public partial class Categoria
 {
     public int IdCategoria { get; set; }
 

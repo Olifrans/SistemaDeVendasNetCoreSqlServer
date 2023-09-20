@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SistemaDeVendas.Entity;
 
-public partial class Vendum
+public partial class Venda
 {
     public int IdVenda { get; set; }
 
@@ -25,9 +25,9 @@ public partial class Vendum
 
     public DateTime? FechaRegistro { get; set; }
 
-    public virtual ICollection<DetalheVendum> DetalheVenda { get; set; } = new List<DetalheVendum>();
+    public virtual ICollection<DetalheVenda> DetalheVenda { get; set; } = new List<DetalheVenda>();
 
-    public virtual TipoDocumentoVendum? IdTipoDocumentoVendaNavigation { get; set; }
+    public virtual TipoDocumentoVenda? IdTipoDocumentoVendaNavigation { get; set; }
 
     public virtual Usuario? IdUsuarioNavigation { get; set; }
 }
