@@ -59,9 +59,3 @@ To protect potentially sensitive information in your connection string, you shou
 
 Obs: Para o comando do Scaffold-DbContext funcionar o projeto em questão precisa esta setado como inicial
 
-
-
-
-https://www.youtube.com/watch?v=dqYkJvXIEEA&list=PLx2nia7-PgoDbCAY2nGXAcIl_zkQKA2Ap&index=2
-
-8:41 / 34:19
