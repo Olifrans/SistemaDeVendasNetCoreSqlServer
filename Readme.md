@@ -51,7 +51,17 @@ A connection was successfully established with the server, but then an error occ
 
 
 PM> Scaffold-DbContext "Server=DESKTOP-RL96SQL;DataBase=VENDASNETCORE;Integrated Security=true;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer
+
 Build started...
 Build succeeded.
 To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
 
+
+Obs: Para o comando do Scaffold-DbContext funcionar o projeto em questão precisa esta setado como inicial
+
+
+
+
+https://www.youtube.com/watch?v=dqYkJvXIEEA&list=PLx2nia7-PgoDbCAY2nGXAcIl_zkQKA2Ap&index=2
+
+8:41 / 34:19
