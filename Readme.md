@@ -59,3 +59,26 @@ To protect potentially sensitive information in your connection string, you shou
 
 Obs: Para o comando do Scaffold-DbContext funcionar o projeto em questão precisa esta setado como inicial
 
+
+
+# Passo 01 - Copiando os modelos de CSS e HTML para a pasta wwwroot do executavél web.
+
+Entra na pasata (C:\Workspace\SistemaDeVendasNetCoreSqlServer\Suporte\Modelos Bootstrap\Modelos Bootstrap_001) e copiar as pastas css, img, js, scss e vendor
+
+
+# Passo 02 - Copiando os dados do arquivo HTML "vazio.html", e substitue os dados do _layout.cshtml
+Entra na pasata (C:\Workspace\SistemaDeVendasNetCoreSqlServer\Suporte\Modelos Bootstrap\Modelos Bootstrap_001)
+
+
+
+# Passo 03 - Copiando os dados do arquivo HTML "index.html" apenas a div class="container-fluid, incluei no dashborad index
+Entra na pasata (C:\Workspace\SistemaDeVendasNetCoreSqlServer\Suporte\Modelos Bootstrap\Modelos Bootstrap_001)
+
+
+
+
+# Passo 04 - Copiando os dados do arquivo HTML "usuarios.html" apenas a div class="container-fluid, incluei no dashborad index
+Entra na pasata (C:\Workspace\SistemaDeVendasNetCoreSqlServer\Suporte\Modelos Bootstrap\Modelos Bootstrap_001)
+
+
+Fazer o mesmo procedimento acima para categoria, negocio e produto
