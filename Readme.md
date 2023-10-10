@@ -40,6 +40,31 @@ Read more: http://www.linhadecodigo.com.br/artigo/3418/inversao-de-controle-ioc-
 
 
 
+
+
+
+
+# Correçãõ de Errrooo!!!
+InvalidOperationException: The view 'Index' was not found. The following locations were searched: /Views/Dashboard/Index.cshtml /Views/Shared/Index.cshtml
+Encontrei o mesmo problema quando migrei um aplicativo MVC do .NET 5 para o 7. Embora funcionasse perfeitamente na versão 5, as versões 6 e 7 apresentaram um problema na forma de um , afirmando especificamente InvalidOperationException:The view 'Index' could not be located. The following locations were searched.
+
+Esse problema surge de um problema conhecido relacionado às visualizações do ASP.NET Core 6 e 7 Razor, decorrente de alterações na forma como as visualizações do Razor são compiladas.
+
+Para resolver esse problema, tive que incorporar o Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilationpacote ao meu projeto.
+Além disso, precisei modificar minha configuração MVC de:
+
+services.AddControllersWithViews();
+para:
+
+services.AddControllersWithViews().AddRazorRuntimeCompilation();
+Feitos esses ajustes, tudo começou a funcionar corretamente.
+
+
+
+
+
+
+
 Comando Entity Framework para instalar o complementos do entity
 
 Scaffold-DbContext "Server=DESKTOP-RL96SQL;DataBase=VENDASNETCORE;Integrated Security=true;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer
@@ -82,3 +107,9 @@ Entra na pasata (C:\Workspace\SistemaDeVendasNetCoreSqlServer\Suporte\Modelos Bo
 
 
 Fazer o mesmo procedimento acima para categoria, negocio e produto
+
+
+
+https://www.youtube.com/watch?v=WKJ9P-RSfrg&list=PLx2nia7-PgoDbCAY2nGXAcIl_zkQKA2Ap&index=3
+
+32:28 / 38:10
