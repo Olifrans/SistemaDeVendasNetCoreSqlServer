@@ -1,9 +1,9 @@
 ﻿@{
-	ViewData["Title"] = "Index";
+	ViewData["Title"] = "Produto";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Produtos</h1>
 
 
 @section Estilos{
@@ -18,16 +18,16 @@
 
 
 <!-- Begin Page Content -->
-<div class="container-fluid">
+@*<div class="container-fluid">*@
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
 		<div class="card-header py-3 bg-second-primary">
-			<h6 class="m-0 font-weight-bold text-white">Lista de Productos</h6>
+			<h6 class="m-0 font-weight-bold text-white">Lista de Produtos</h6>
 		</div>
 		<div class="card-body">
 			<div class="row">
 				<div class="col-sm-3">
-					<button class="btn btn-success" data-toggle="modal" data-target="#modalData"><i class="fas fa-plus-circle"></i> Nuevo Producto</button>
+					<button class="btn btn-success" data-toggle="modal" data-target="#modalData"><i class="fas fa-plus-circle"></i> Novo Produto</button>
 				</div>
 			</div>
 			<hr />
@@ -99,7 +99,7 @@
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h6>Detalle Producto</h6>
+					<h6>Detalle Produto</h6>
 					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
@@ -158,7 +158,7 @@
 								</div>
 							</div>
 							<div class="col-sm-4">
-								<img id="imgProducto" style="max-width:200px;" src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300" class="rounded mx-auto d-block" alt="...">
+								<img id="imgProduto" style="max-width:200px;" src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300" class="rounded mx-auto d-block" alt="...">
 							</div>
 
 						</div>
@@ -172,7 +172,7 @@
 		</div>
 	</div>
 
-</div>
+@*</div>*@
 <!-- /.container-fluid -->
 
 

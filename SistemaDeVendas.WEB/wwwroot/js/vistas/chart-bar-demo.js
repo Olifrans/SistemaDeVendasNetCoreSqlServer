@@ -4,8 +4,8 @@ Chart.defaults.global.defaultFontColor = '#858796';
 
 
 // Bar Chart Example
-let controlVenta = document.getElementById("charVentas");
-let myBarChart = new Chart(controlVenta, {
+let controlVenda = document.getElementById("charVentas");
+let myBarChart = new Chart(controlVenda, {
   type: 'bar',
   data: {
     labels: ["06/07/2022", "07/07/2022", "08/07/2022", "09/07/2022","10/07/2022","11/07/2022", "12/07/2022"],

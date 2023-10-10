@@ -106,7 +106,10 @@ Entra na pasata (C:\Workspace\SistemaDeVendasNetCoreSqlServer\Suporte\Modelos Bo
 Entra na pasata (C:\Workspace\SistemaDeVendasNetCoreSqlServer\Suporte\Modelos Bootstrap\Modelos Bootstrap_001)
 
 
-Fazer o mesmo procedimento acima para categoria, negocio e produto
+Fazer o mesmo procedimento acima para categoria, negocio e produto!!!!
+
+
+Obs: A pagina de perfil criar no Controlador"Home")">
 
 
 
