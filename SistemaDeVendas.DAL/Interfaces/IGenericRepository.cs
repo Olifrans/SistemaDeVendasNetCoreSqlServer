@@ -13,6 +13,6 @@ namespace SistemaDeVendas.DAL.Interfaces
 		Task<TEntity> Create(TEntity entity);
 		Task<bool> Update(TEntity entity);
 		Task<bool> Delete(TEntity entity);
-		Task<IQueryable> GetAll(Expression<Func<TEntity, bool>> filtro = null);
+		Task<IQueryable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filtro = null);
 	}
 }
