@@ -122,7 +122,9 @@ Obs: A pagina de perfil criar no Controlador"Home")">
 
 
 
+https://www.youtube.com/watch?v=E1lpR8IqaEQ&list=PLx2nia7-PgoDbCAY2nGXAcIl_zkQKA2Ap&index=4
 
+25:54 / 40:07
 
 
 

@@ -11,7 +11,7 @@ namespace SistemaDeVendas.DAL.Interfaces
 	public interface IVendaRepository : IGenericRepository<Venda>
 	{
 		Task<Venda> Registrar(Venda entity);
-		Task<List<Venda>> Relatorio(DateTime Inicio, DateTime Fim);
+		Task<List<DetalheVenda>> Relatorio(DateTime Inicio, DateTime Fim);
 
 	}
 }

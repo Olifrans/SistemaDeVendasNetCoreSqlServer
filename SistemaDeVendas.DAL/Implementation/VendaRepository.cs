@@ -15,36 +15,53 @@ namespace SistemaDeVendas.DAL.Implementation
 {
 	public class VendaRepository : GenericRepository<Venda>, IVendaRepository
 	{
-		private readonly VendasnetcoreContext _context;
+		private readonly VendasnetcoreContext _contextDb;
 
-		public VendaRepository(VendasnetcoreContext context)
+		public VendaRepository(VendasnetcoreContext context) : base(context)
 		{
-			_context = context;
+			_contextDb = context;
 		}
-
 
 
 		public async Task<Venda> Registrar(Venda entity)
 		{
 			Venda vendaRealizada = new Venda();
 
-			using (var transaction = _context.Database.BeginTransaction())
+			using (var transaction = _contextDb.Database.BeginTransaction())
 			{
 				try
 				{
 					foreach (DetalheVenda detalhe in entity.DetalheVenda)
 					{
-						Produto produto = _context.Produtos.Where(p => p.IdProduto == detalhe.IdProduto).First();
+						Produto get_produto = _contextDb.Produtos.Where(p => p.IdProduto == detalhe.IdProduto).First();
 
-						produto.Stock = produto.Stock - detalhe.Quantidade;
-						_context.Produtos.Update(produto);
+						get_produto.Stock = get_produto.Stock - detalhe.Quantidade;
+						_contextDb.Produtos.Update(get_produto);
 					}
-					await _context.SaveChangesAsync();
+					await _contextDb.SaveChangesAsync();
 
 
-					NumeroCorrelativo correlativo = _context.NumeroCorrelativos.Where(p => p.Gerenciamento == "venda").First();
+					NumeroCorrelativo correlativo = _contextDb.NumeroCorrelativos.Where(p => p.Gerenciamento == "venda").First();
+
+					correlativo.UltimoNumero = correlativo.UltimoNumero + 1;
+					correlativo.FechaActualizacion = DateTime.Now;
+					;
+					_contextDb.NumeroCorrelativos.Update(correlativo);
+					await _contextDb.SaveChangesAsync();
 
 
+					string zeros = string.Concat(Enumerable.Repeat("0", correlativo.QuantidadeDigitos.Value));
+					string numeroVendas = zeros + correlativo.UltimoNumero.ToString();
+					numeroVendas = numeroVendas.Substring(numeroVendas.Length - correlativo.QuantidadeDigitos.Value, correlativo.QuantidadeDigitos.Value);
+
+					entity.NumeroVenda = numeroVendas;
+
+					await _contextDb.Venda.AddAsync(entity);
+					await _contextDb.SaveChangesAsync();
+
+					vendaRealizada = entity;
+
+					transaction.Commit();
 				}
 				catch (Exception ex)
 				{
@@ -52,67 +69,20 @@ namespace SistemaDeVendas.DAL.Implementation
 					throw ex;
 				}
 			}
+			return vendaRealizada;
 		}
 
-		public async Task<List<Venda>> Relatorio(DateTime Inicio, DateTime Fim)
+		public async Task<List<DetalheVenda>> Relatorio(DateTime Inicio, DateTime Fim)
 		{
-			Venda vendaRealizada = new Venda();
+			List<DetalheVenda> relatorioResumido = await _contextDb.DetalheVenda
+				.Include(v => v.IdVendaNavigation)
+				.ThenInclude(u => u.IdUsuario)
+				.Include(v => v.IdVendaNavigation)
+				.ThenInclude(dtv => dtv.IdTipoDocumentoVendaNavigation)
+				.Where(dv => dv.IdVendaNavigation.FechaRegistro.Value.Date >= Inicio.Date &&
+					dv.IdVendaNavigation.FechaRegistro.Value.Date <= Fim.Date).ToListAsync();
 
-			using (var transaction = _context.Database.BeginTransaction())
-			{
-				try
-				{
-                    foreach (DetalheVenda detalhe = new DetalheVenda)
-                    {
-                     
-						
-                    }
-
-                }
-				catch (Exception ex)
-				{
-					transaction.Rollback();
-					throw ex;
-				}
-			}
+			return relatorioResumido;
 		}
-
-
-		//public async Task<bool> Update(TEntity entity)
-		//{
-		//	try
-		//	{
-		//		_context.Update(entity);
-		//		//_context.Set<TEntity>().Update(entity);
-		//		await _context.SaveChangesAsync();
-		//		return true;
-		//	}
-		//	catch (Exception)
-		//	{
-		//		throw;
-		//	}
-		//}
-
-		//public async Task<bool> Delete(TEntity entity)
-		//{
-		//	try
-		//	{
-		//		_context.Remove(entity);
-		//		//_context.Set<TEntity>().Update(entity);
-		//		await _context.SaveChangesAsync();
-		//		return true;
-		//	}
-		//	catch (Exception)
-		//	{
-		//		throw;
-		//	}
-		//}
-
-		//public async Task<IQueryable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filtro = null)
-		//{
-		//	IQueryable<TEntity> queryEntity = filtro == null ? _context.Set<TEntity>() : _context.Set<TEntity>().Where(filtro);
-
-		//	return queryEntity;
-		//}
 	}
 }
