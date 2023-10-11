@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Microsoft.EntityFrameworkCore;
 using SistemaDeVendas.DAL.DBContext;
+using SistemaDeVendas.DAL.Interfaces;
+using SistemaDeVendas.DAL.Implementation;
 
 namespace SistemaDeVendas.IOC
 {
@@ -23,9 +25,10 @@ namespace SistemaDeVendas.IOC
             services.AddDbContext<VendasnetcoreContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("ConnectionSistemaDeVendas"));
-            });
+			});
 
-
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IVendaRepository, VendaRepository>();
 
 
         }
