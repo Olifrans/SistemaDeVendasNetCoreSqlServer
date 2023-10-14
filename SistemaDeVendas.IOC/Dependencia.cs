@@ -14,6 +14,8 @@ using Microsoft.EntityFrameworkCore;
 using SistemaDeVendas.DAL.DBContext;
 using SistemaDeVendas.DAL.Interfaces;
 using SistemaDeVendas.DAL.Implementation;
+using SistemaDeVendas.BLL.Interfaces;
+using SistemaDeVendas.BLL.Implementation;
 
 namespace SistemaDeVendas.IOC
 {
@@ -28,8 +30,9 @@ namespace SistemaDeVendas.IOC
 			});
 
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IVendaRepository, VendaRepository>();
 
+            services.AddScoped<IVendaRepository, VendaRepository>();
+            services.AddScoped<IEmailServico, EmailServico>();
 
         }
 
