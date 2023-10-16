@@ -32,7 +32,9 @@ namespace SistemaDeVendas.IOC
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             services.AddScoped<IVendaRepository, VendaRepository>();
+
             services.AddScoped<IEmailServico, EmailServico>();
+            services.AddScoped<IFireBaseServico, FireBaseServico>();
 
         }
 

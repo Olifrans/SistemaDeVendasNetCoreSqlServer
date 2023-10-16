@@ -9,6 +9,6 @@ namespace SistemaDeVendas.BLL.Interfaces
 	public interface IFireBaseServico
 	{
 		Task<string> UploadStorage(Stream StreamArquivo,string PastaDestino, string NomeArquivo);
-		Task<string> DeletStorage(string PastaDestino, string NomeArquivo);
+		Task<bool> DeletStorage(string PastaDestino, string NomeArquivo);
 	}
 }
